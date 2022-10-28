@@ -31,8 +31,9 @@
                 <h3 class="my-3">To DO con VUE</h3>
                 <ul>
                     <li v-for="(task,i) in tasks"  :class="task.done === true ? 'task-done' : ''" @click="done(i)">
+                        
                         {{task.text}}
-                        <i class="fa-solid fa-circle-xmark" @click="delete(i)"></i>
+                        <i class="fa-solid fa-circle-xmark" @click.stop="cancellaTask(i)"></i>
                     </li>
                 </ul>
             </div>

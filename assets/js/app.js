@@ -37,9 +37,10 @@ createApp({
         }
     },
     methods: {
-        delete(i) {
+        cancellaTask(i) {
             //dobbiamo rimuovere l'elemento selezionato all'indice parametrizzato con lo splice
             this.tasks.splice(i, 1)
+            
         },
         done(i) {
             //dobbiamo spuntare come fatto l'elemento selezionato all'indice
