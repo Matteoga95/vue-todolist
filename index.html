@@ -17,8 +17,17 @@
 <body>
     <div id="app">
         <div class="container">
+
+            <div class="aggiungi">
+                <h3 class="my-3">Aggiungi una nuova Task</h3>
+
+                <input type="text" v-model="nuovaTask">
+                <button class="mx-3 px-3" @click="aggiungiTask">Aggiungi</button>
+            </div>
+
+
             <div class="task-list">
-                <h3>To DO con VUE</h3>
+                <h3 class="my-3">To DO con VUE</h3>
                 <ul>
                     <li v-for="(task,i) in tasks"  :class="task.done === true ? 'task-done' : ''" >
                         {{task.text}}

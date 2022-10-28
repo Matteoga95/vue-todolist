@@ -9,6 +9,8 @@
 // MILESTONE 2
 // Visualizzare a fianco ad ogni item ha una "x": cliccando su di essa, il todo viene rimosso dalla lista.
 
+// MILESTONE 3
+// Predisporre un campo di input testuale e un pulsante "aggiungi": cliccando sul pulsante, il testo digitato viene letto e utilizzato per creare un nuovo todo, che quindi viene aggiunto alla lista dei todo esistenti.
 
 const { createApp } = Vue;
 
@@ -16,6 +18,7 @@ const { createApp } = Vue;
 createApp({
     data() {
         return {
+            nuovaTask: '',
             tasks: [
                 {
                     text: 'Testo della task',
@@ -35,7 +38,16 @@ createApp({
     methods: {
         done(i) {
             //dobbiamo rimuovere l'elemento selezionato all'indice parametrizzato con lo splice
-            this.tasks.splice(i,1)
+            this.tasks.splice(i, 1)
+        },
+        aggiungiTask() {
+            //prima recupero il valore dell'input emesso dall'utente
+            console.log(this.nuovaTask);
+
+            // pusho il valore dell'input dentro la lista di task         
+            this.tasks.unshift({ text: this.nuovaTask, done: false });
+            
+
         }
     }
 
