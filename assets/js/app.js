@@ -19,6 +19,7 @@ createApp({
     data() {
         return {
             nuovaTask: '',
+            error: false,
             tasks: [
                 {
                     text: 'Testo della task',
@@ -40,13 +41,21 @@ createApp({
             //dobbiamo rimuovere l'elemento selezionato all'indice parametrizzato con lo splice
             this.tasks.splice(i, 1)
         },
+     
         aggiungiTask() {
             //prima recupero il valore dell'input emesso dall'utente
             console.log(this.nuovaTask);
+                  
+            // non far si che aggiunga una task vuota
+            if (this.nuovaTask.length == 0) {
+                //mostro errore            
+                this.error = true;
 
-            // pusho il valore dell'input dentro la lista di task         
-            this.tasks.unshift({ text: this.nuovaTask, done: false });
-            
+            } else {
+                // // pusho il valore dell'input dentro la lista di task         
+                this.tasks.unshift({ text: this.nuovaTask, done: false });
+                this.nuovaTask = '';
+            }
 
         }
     }

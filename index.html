@@ -23,6 +23,7 @@
 
                 <input type="text" v-model="nuovaTask">
                 <button class="mx-3 px-3" @click="aggiungiTask">Aggiungi</button>
+                <small class="mx-3 text-danger" v-show="error">Devi inserire una task che non sia già presente nella lista, e non è valido inserire una task vuota</small>
             </div>
 
 
