@@ -22,6 +22,7 @@
                 <ul>
                     <li v-for="(task,i) in tasks"  :class="task.done === true ? 'task-done' : ''" >
                         {{task.text}}
+                        <i class="fa-solid fa-circle-xmark" @click="done(index)"></i>
                     </li>
                 </ul>
             </div>
