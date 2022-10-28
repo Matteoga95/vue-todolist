@@ -37,15 +37,24 @@ createApp({
         }
     },
     methods: {
-        done(i) {
+        delete(i) {
             //dobbiamo rimuovere l'elemento selezionato all'indice parametrizzato con lo splice
             this.tasks.splice(i, 1)
         },
-     
+        done(i) {
+            //dobbiamo spuntare come fatto l'elemento selezionato all'indice
+            //per farlo mettimao done a true per questo elemento o false se era già true
+            if (  this.tasks[i].done === true) {
+                this.tasks[i].done = false
+            }else{
+                this.tasks[i].done = true
+            }
+          
+        },
         aggiungiTask() {
             //prima recupero il valore dell'input emesso dall'utente
             console.log(this.nuovaTask);
-                  
+
             // non far si che aggiunga una task vuota
             if (this.nuovaTask.length == 0) {
                 //mostro errore            
